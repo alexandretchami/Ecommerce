@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="{% static 'app/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <title>Bienvenue dans la boutique de CoCoDeParis | {% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'app/images/logo.png' %}" width="70" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Nos Produits
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'category' 'jea' %}">Jeans</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'jup' %}">Jupes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'top' %}">T-shirts</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'pul' %}">Pulls</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'vest' %}">Vestes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'blaz' %}">Blazers</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'chau' %}">Chaussures</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'combi' %}">Combinaisons</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'ceint' %}">Ceintures</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'hat' %}">Chapeaux</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'bag' %}">Sacs</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'mech' %}">Nos Mèches</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'bc' %}">Beauté & Cosmétique</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+
+            
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdrown-item" href="{% url 'profile' %}">Profil</a></li>
+                        <li><a class="dropdrown-item" href="#">Mes commandes</a></li>
+                        <li><a class="dropdrown-item" href="{% url 'about' %}">À propos de nous</a></li>
+                        <li><a class="dropdrown-item" href="{% url 'contact' %}">Contactez-nous</a></li>
+                        <li><a class="dropdrown-item" href="{% url 'passwordchange' %}">Changer le mot de passe</a></li>
+                        <li><a class="dropdrown-item" href="{% url 'logout' %}">Se déconnecter</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="#" class="nav-link text-white">Panier</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="#" class="nav-link text-white">Liste de souhaits</a>
+                </li>
+                {% else %}
+                <li class="nav-item mx-2">
+                    <a href="{% url 'login' %}" class="nav-link text-white">Connexion</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="{% url 'customerregistration' %}" class="nav-link text-white">Inscription</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    {% block banner-slider %}{% endblock banner-slider %}
+    {% block information %}{% endblock information %}
+    {% block main-content %}{% endblock main-content %}
+
+    <footer class="container-fluid fixed-bottom bg-success text-center p-2 mt-5">
+        Copyright : 2023 || Develop by : TchamiDev
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script script="" {% static 'app/js/owl.carousel.min.js' %}></script>
+    <script script="" {% static 'app/js/all.min.js' %}></script>
+    <script script="" {% static 'app/js/myscript.js' %}></script>
+</body>
+
+</html>
