@@ -7,6 +7,9 @@
 		<div class="row">
 			{% if cart %}
 				<h1 class="text-center mb-5">Panier</h1>
+				<hr>
+				<span class="text-center">Commandez 55,00 € de plus pour bénéficier d'une livraison offerte</span>
+				<hr>
 				<div class="col-sm-8">
 					<div class="card">
 						<div class="card-body">
@@ -62,7 +65,7 @@
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0 mb-3">
 									<div>
 										<strong>Total</strong>
-										<small>{ taxe y compris }</small>
+										<small>{  Taxes de 7,50 € incluse  }</small>
 									</div>
 									<span id="totalamount">
 										<strong>{{ totalamount }}
@@ -77,7 +80,7 @@
 					</div>
 				</div>
 			{% else %}
-				<h1 class="text-center mb-5">Le panier est vide</h1>
+				<h1 class="text-center mb-5">Votre panier est vide</h1>
 			{% endif %}
 		</div>
 	</div>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +15,10 @@
 
 <body>
 
-
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <img src="{% static 'app/images/logo.png' %}" width="70" height="50">
+                <img src="{% static 'app/images/logo.webp' %}" width="70" height="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -37,7 +34,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Nos Produits
+                            Toutes catégories
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'category' 'jea' %}">Jeans</a></li>
@@ -100,7 +97,7 @@
     {% block main-content %}{% endblock main-content %}
 
     <footer class="container-fluid fixed-bottom bg-success text-center p-2 mt-5">
-        Copyright : 2023 || Develop by : TchamiDev
+        Copyright : 2023 || Develop by : Tchamidev
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -111,9 +108,9 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
-    <script script="" {% static 'app/js/owl.carousel.min.js' %}></script>
-    <script script="" {% static 'app/js/all.min.js' %}></script>
-    <script script="" {% static 'app/js/myscript.js' %}></script>
+    <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'app/js/all.min.js' %}"></script>
+    <script src="{% static 'app/js/myscript.js' %}"></script>
 </body>
 
 </html>
